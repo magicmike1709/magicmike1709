@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maykel's Gym</title>
+<meta name="description" content="Maykel's Gym: gimnasio de barrio con pesas, preentreno servido en el mostrador, nevera en pesos y vitrina de ropa y suplementos en dólares. Escríbenos por WhatsApp.">
+<link rel="preload" href="fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- Dibujos de la página: un solo lenguaje plano, en los colores de la paleta. Se reemplazan por fotos reales del gym. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Barra cargada, de cerca -->
+    <symbol id="d-barbell" viewBox="0 0 600 500">
+      <rect width="600" height="500" fill="#f2f2f2"/>
+      <rect x="0" y="392" width="600" height="108" fill="#e4e4e2"/>
+      <rect x="0" y="232" width="600" height="22" fill="#9a9a96"/>
+      <rect x="0" y="232" width="600" height="7" fill="#c9c9c5"/>
+      <g fill="#7d7d79"><rect x="40" y="236" width="4" height="14"/><rect x="52" y="236" width="4" height="14"/><rect x="64" y="236" width="4" height="14"/><rect x="76" y="236" width="4" height="14"/><rect x="88" y="236" width="4" height="14"/><rect x="100" y="236" width="4" height="14"/></g>
+      <rect x="440" y="214" width="160" height="58" fill="#b5b5b1"/>
+      <rect x="440" y="214" width="160" height="14" fill="#d4d4d0"/>
+      <rect x="150" y="38" width="64" height="410" rx="10" fill="#111"/>
+      <rect x="150" y="38" width="20" height="410" rx="8" fill="#2c2c2a"/>
+      <rect x="226" y="78" width="54" height="330" rx="9" fill="#de194b"/>
+      <rect x="226" y="78" width="16" height="330" rx="7" fill="#f04d73"/>
+      <rect x="292" y="118" width="44" height="250" rx="8" fill="#4db3ff"/>
+      <rect x="292" y="118" width="13" height="250" rx="6" fill="#86ccff"/>
+      <rect x="348" y="150" width="36" height="186" rx="7" fill="#c5f53d"/>
+      <rect x="348" y="150" width="11" height="186" rx="5" fill="#dcff7a"/>
+      <rect x="396" y="196" width="34" height="94" rx="6" fill="#ff8126"/>
+      <rect x="404" y="206" width="8" height="74" fill="#ffad6b"/>
+      <text x="182" y="262" fill="#f2f2f2" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="22" text-anchor="middle" transform="rotate(-90 182 243)">20 KG</text>
+      <text x="253" y="256" fill="#fff" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="18" text-anchor="middle" transform="rotate(-90 253 243)">15</text>
+      <text x="314" y="255" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="16" text-anchor="middle" transform="rotate(-90 314 243)">10</text>
+      <rect x="0" y="420" width="600" height="6" fill="#d4d4d0"/>
+    </symbol>
+
+    <!-- Estante de mancuernas -->
+    <symbol id="d-rack" viewBox="0 0 600 400">
+      <rect width="600" height="400" fill="#4db3ff"/>
+      <rect x="0" y="320" width="600" height="80" fill="#3a9be0"/>
+      <rect x="40" y="150" width="520" height="16" fill="#111"/>
+      <rect x="40" y="270" width="520" height="16" fill="#111"/>
+      <rect x="56" y="150" width="14" height="190" fill="#111"/><rect x="530" y="150" width="14" height="190" fill="#111"/>
+      <g id="db">
+        <rect x="-38" y="-6" width="76" height="12" fill="#9a9a96"/>
+        <rect x="-58" y="-26" width="24" height="52" rx="5" fill="#111"/>
+        <rect x="34" y="-26" width="24" height="52" rx="5" fill="#111"/>
+        <rect x="-58" y="-26" width="8" height="52" rx="3" fill="#2c2c2a"/>
+        <rect x="34" y="-26" width="8" height="52" rx="3" fill="#2c2c2a"/>
+      </g>
+      <use href="#db" x="130" y="124"/><use href="#db" x="260" y="124"/><use href="#db" x="390" y="124"/><use href="#db" x="490" y="124" />
+      <use href="#db" x="130" y="244"/><use href="#db" x="260" y="244"/><use href="#db" x="390" y="244"/>
+      <g fill="#c5f53d" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="15" text-anchor="middle">
+        <text x="130" y="194">5</text><text x="260" y="194">7,5</text><text x="390" y="194">10</text><text x="490" y="194">12,5</text>
+        <text x="130" y="314">15</text><text x="260" y="314">17,5</text><text x="390" y="314">20</text>
+      </g>
+      <rect x="452" y="226" width="80" height="34" rx="4" fill="#ff8126"/>
+      <rect x="452" y="226" width="80" height="10" rx="3" fill="#ffad6b"/>
+    </symbol>
+
+    <!-- El mostrador: preentreno servido por dosis -->
+    <symbol id="d-counter" viewBox="0 0 600 400">
+      <rect width="600" height="400" fill="#ff8126"/>
+      <rect x="0" y="262" width="600" height="138" fill="#111"/>
+      <rect x="0" y="262" width="600" height="14" fill="#2c2c2a"/>
+      <rect x="70" y="120" width="96" height="142" rx="10" fill="#c5f53d"/>
+      <rect x="70" y="120" width="26" height="142" rx="8" fill="#dcff7a"/>
+      <rect x="78" y="96" width="80" height="30" rx="6" fill="#111"/>
+      <rect x="84" y="170" width="68" height="44" fill="#111"/>
+      <text x="118" y="198" fill="#c5f53d" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="15" text-anchor="middle">PRE</text>
+      <rect x="236" y="150" width="70" height="112" rx="8" fill="#f2f2f2"/>
+      <rect x="236" y="150" width="20" height="112" rx="6" fill="#ffffff"/>
+      <rect x="244" y="128" width="54" height="26" rx="5" fill="#de194b"/>
+      <rect x="262" y="112" width="18" height="20" rx="3" fill="#de194b"/>
+      <rect x="240" y="200" width="62" height="58" fill="#4db3ff"/>
+      <rect x="360" y="226" width="110" height="20" rx="10" fill="#9a9a96"/>
+      <ellipse cx="490" cy="232" rx="42" ry="26" fill="#9a9a96"/>
+      <ellipse cx="490" cy="226" rx="34" ry="16" fill="#dcff7a"/>
+      <circle cx="476" cy="222" r="4" fill="#c5f53d"/><circle cx="498" cy="228" r="3" fill="#c5f53d"/>
+      <rect x="380" y="60" width="160" height="88" fill="#f2f2f2"/>
+      <text x="460" y="96" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="20" text-anchor="middle">Preentreno</text>
+      <text x="460" y="126" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="600" font-size="16" text-anchor="middle">por dosis</text>
+      <rect x="456" y="40" width="8" height="20" fill="#111"/>
+    </symbol>
+
+    <!-- Toalla y agua de 1,5 L -->
+    <symbol id="d-towel" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="#c5f53d"/>
+      <rect x="0" y="236" width="400" height="64" fill="#a8d82a"/>
+      <rect x="40" y="168" width="200" height="70" rx="12" fill="#f2f2f2"/>
+      <rect x="40" y="168" width="200" height="22" rx="10" fill="#ffffff"/>
+      <rect x="40" y="206" width="200" height="12" fill="#de194b"/>
+      <rect x="40" y="222" width="200" height="5" fill="#de194b"/>
+      <rect x="54" y="120" width="172" height="52" rx="12" fill="#4db3ff"/>
+      <rect x="54" y="120" width="172" height="16" rx="10" fill="#86ccff"/>
+      <rect x="54" y="152" width="172" height="8" fill="#111"/>
+      <rect x="282" y="72" width="64" height="166" rx="18" fill="#86ccff"/>
+      <rect x="282" y="72" width="18" height="166" rx="10" fill="#c2e5ff"/>
+      <rect x="298" y="46" width="32" height="30" rx="4" fill="#111"/>
+      <rect x="282" y="130" width="64" height="48" fill="#f2f2f2"/>
+      <text x="314" y="160" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="15" text-anchor="middle">1,5 L</text>
+    </symbol>
+
+    <!-- Coctel de frutas de la nevera -->
+    <symbol id="d-cup" viewBox="0 0 500 700">
+      <rect x="236" y="0" width="22" height="200" fill="#de194b"/>
+      <rect x="236" y="0" width="7" height="200" fill="#f04d73"/>
+      <path d="M80 180 Q250 110 420 180 Z" fill="#f2f2f2"/>
+      <rect x="60" y="176" width="380" height="34" rx="8" fill="#f2f2f2"/>
+      <rect x="60" y="176" width="380" height="10" rx="5" fill="#ffffff"/>
+      <path d="M78 210 L422 210 L384 690 L116 690 Z" fill="#e9e9e6"/>
+      <path d="M90 250 L410 250 L380 640 L120 640 Z" fill="#ff8126"/>
+      <g>
+        <rect x="120" y="270" width="70" height="70" rx="10" fill="#ffad6b"/>
+        <rect x="210" y="290" width="80" height="66" rx="10" fill="#f6e33c"/>
+        <rect x="300" y="262" width="78" height="74" rx="10" fill="#de194b"/>
+        <rect x="140" y="360" width="84" height="80" rx="10" fill="#de194b"/>
+        <rect x="240" y="372" width="76" height="70" rx="10" fill="#ffad6b"/>
+        <rect x="326" y="352" width="56" height="78" rx="10" fill="#f6e33c"/>
+        <rect x="132" y="460" width="76" height="72" rx="10" fill="#f6e33c"/>
+        <rect x="222" y="466" width="90" height="74" rx="10" fill="#c5f53d"/>
+        <rect x="320" y="452" width="54" height="80" rx="10" fill="#ffad6b"/>
+        <rect x="150" y="552" width="88" height="66" rx="10" fill="#de194b"/>
+        <rect x="252" y="560" width="90" height="62" rx="10" fill="#f6e33c"/>
+        <circle cx="150" cy="300" r="5" fill="#111"/><circle cx="340" cy="390" r="4" fill="#111"/><circle cx="190" cy="590" r="5" fill="#111"/>
+      </g>
+      <path d="M78 210 L110 210 L148 690 L116 690 Z" fill="#ffffff" opacity=".55"/>
+      <rect x="150" y="610" width="200" height="44" fill="#f2f2f2"/>
+      <text x="250" y="640" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="20" text-anchor="middle">Coctel de frutas</text>
+    </symbol>
+
+    <!-- Pomo de proteína de la vitrina -->
+    <symbol id="d-tub" viewBox="0 0 500 700">
+      <rect x="70" y="90" width="360" height="90" rx="14" fill="#111"/>
+      <rect x="70" y="90" width="360" height="26" rx="12" fill="#2c2c2a"/>
+      <g fill="#2c2c2a"><rect x="90" y="124" width="10" height="48"/><rect x="120" y="124" width="10" height="48"/><rect x="150" y="124" width="10" height="48"/><rect x="180" y="124" width="10" height="48"/><rect x="210" y="124" width="10" height="48"/><rect x="240" y="124" width="10" height="48"/><rect x="270" y="124" width="10" height="48"/><rect x="300" y="124" width="10" height="48"/><rect x="330" y="124" width="10" height="48"/><rect x="360" y="124" width="10" height="48"/><rect x="390" y="124" width="10" height="48"/></g>
+      <rect x="56" y="176" width="388" height="520" rx="20" fill="#f2f2f2"/>
+      <rect x="56" y="176" width="70" height="520" rx="18" fill="#ffffff"/>
+      <rect x="56" y="250" width="388" height="230" fill="#4db3ff"/>
+      <rect x="56" y="250" width="70" height="230" fill="#86ccff"/>
+      <text x="250" y="352" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="84" text-anchor="middle" letter-spacing="-4">WHEY</text>
+      <text x="250" y="410" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="600" font-size="26" text-anchor="middle">proteína · 5 lb</text>
+      <rect x="150" y="436" width="200" height="26" fill="#c5f53d"/>
+      <text x="250" y="456" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="17" text-anchor="middle">24 g por servicio</text>
+      <g fill="#9a9a96"><rect x="150" y="520" width="200" height="8"/><rect x="150" y="540" width="170" height="8"/><rect x="150" y="560" width="190" height="8"/><rect x="150" y="580" width="120" height="8"/></g>
+      <rect x="56" y="640" width="388" height="56" fill="#e4e4e2"/>
+    </symbol>
+
+    <!-- Teléfono con el chat de WhatsApp -->
+    <symbol id="d-phone" viewBox="0 0 400 500">
+      <rect width="400" height="500" fill="#ff8126"/>
+      <rect x="100" y="40" width="200" height="420" rx="30" fill="#111"/>
+      <rect x="114" y="74" width="172" height="350" rx="8" fill="#f2f2f2"/>
+      <rect x="114" y="74" width="172" height="44" fill="#1c7c54"/>
+      <circle cx="140" cy="96" r="12" fill="#c5f53d"/>
+      <rect x="160" y="90" width="80" height="12" rx="6" fill="#f2f2f2"/>
+      <rect x="182" y="140" width="94" height="40" rx="10" fill="#d4f8c4"/>
+      <rect x="192" y="152" width="70" height="7" rx="3" fill="#5f8a55"/><rect x="192" y="164" width="44" height="7" rx="3" fill="#5f8a55"/>
+      <rect x="124" y="194" width="110" height="52" rx="10" fill="#ffffff"/>
+      <rect x="134" y="206" width="86" height="7" rx="3" fill="#9a9a96"/><rect x="134" y="218" width="70" height="7" rx="3" fill="#9a9a96"/><rect x="134" y="230" width="50" height="7" rx="3" fill="#9a9a96"/>
+      <rect x="170" y="260" width="106" height="40" rx="10" fill="#d4f8c4"/>
+      <rect x="180" y="272" width="80" height="7" rx="3" fill="#5f8a55"/><rect x="180" y="284" width="56" height="7" rx="3" fill="#5f8a55"/>
+      <rect x="124" y="384" width="124" height="28" rx="14" fill="#ffffff"/>
+      <circle cx="268" cy="398" r="14" fill="#1c7c54"/>
+      <rect x="176" y="50" width="48" height="10" rx="5" fill="#2c2c2a"/>
+    </symbol>
+
+    <!-- La puerta del gym -->
+    <symbol id="d-door" viewBox="0 0 500 600">
+      <rect width="500" height="600" fill="#c5f53d"/>
+      <rect x="0" y="520" width="500" height="80" fill="#a8d82a"/>
+      <rect x="40" y="70" width="420" height="80" fill="#111"/>
+      <text x="250" y="124" fill="#ff8126" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="40" text-anchor="middle" letter-spacing="-1">MAYKEL'S GYM</text>
+      <rect x="110" y="176" width="280" height="344" fill="#4db3ff"/>
+      <rect x="124" y="190" width="120" height="330" fill="#3a9be0"/>
+      <rect x="256" y="190" width="120" height="330" fill="#3a9be0"/>
+      <rect x="124" y="190" width="120" height="140" fill="#86ccff"/>
+      <rect x="256" y="190" width="120" height="140" fill="#86ccff"/>
+      <rect x="226" y="380" width="10" height="56" rx="4" fill="#111"/><rect x="264" y="380" width="10" height="56" rx="4" fill="#111"/>
+      <rect x="276" y="216" width="80" height="56" fill="#f2f2f2"/>
+      <text x="316" y="240" fill="#111" font-family="Schibsted Grotesk, sans-serif" font-weight="800" font-size="15" text-anchor="middle">ABIERTO</text>
+      <text x="316" y="260" fill="#de194b" font-family="Schibsted Grotesk, sans-serif" font-weight="600" font-size="12" text-anchor="middle">pasa</text>
+      <rect x="90" y="520" width="320" height="16" fill="#9a9a96"/>
+      <rect x="60" y="440" width="40" height="80" rx="6" fill="#ff8126"/>
+      <rect x="54" y="420" width="52" height="26" rx="10" fill="#1c7c54"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hero" id="inicio">
+  <div class="bar">
+    <a class="wordmark" href="#inicio">Maykel's Gym</a>
+    <nav aria-label="Secciones">
+      <a class="link" href="#planes">Planes</a>
+      <a class="link" href="#vender">Nevera y vitrina</a>
+      <a class="link" href="#preguntas">Preguntas</a>
+      <a class="link" href="#contacto">Dónde estamos</a>
+    </nav>
+    <a class="button" data-wa="Hola, quiero información para entrenar en Maykel's Gym." href="https://wa.me/5350000000">Escríbenos</a>
+  </div>
+  <div class="field field-top"></div>
+  <div class="field field-bottom"></div>
+  <h1 class="hl lines">
+    <span class="line l1"><span data-line style="--i:0">MAYKEL'S</span></span>
+    <span class="line l2"><span data-line style="--i:1">GYM</span></span>
+  </h1>
+  <p class="hero-sub">Gimnasio de barrio con pesas, preentreno servido en el mostrador, nevera en pesos y vitrina en dólares.</p>
+  <div class="hero-foot">
+    <p>Lun a sáb · 6:00 a 22:00</p>
+    <p>Calle y número, reparto, ciudad</p>
+    <a class="btn-ink" data-wa="Hola, quiero empezar a entrenar en Maykel's Gym." href="https://wa.me/5350000000">Empieza esta semana</a>
+  </div>
+</header>
+
+<main>
+
+<section class="intro" aria-labelledby="intro-h">
+  <h2 id="intro-h" class="sr-only">Un día en Maykel's Gym</h2>
+  <p class="stair" data-reveal-group>
+    <span data-reveal style="--d:0">Entrenas,</span>
+    <span data-reveal style="--d:1">te tomas el preentreno</span>
+    <span data-reveal style="--d:2">en el mostrador,</span>
+    <span data-reveal style="--d:3">comes algo de la nevera</span>
+    <span data-reveal style="--d:4">y te vas con ropa nueva.</span>
+  </p>
+  <div class="intro-pics">
+    <figure data-reveal style="--d:2"><svg viewBox="0 0 600 400" role="img" aria-label="Dibujo de un estante con mancuernas de 5 a 20 kilos"><use href="#d-rack"/></svg></figure>
+    <figure data-reveal style="--d:3"><svg viewBox="0 0 600 400" role="img" aria-label="Dibujo del mostrador con el preentreno servido por dosis"><use href="#d-counter"/></svg></figure>
+  </div>
+  <p class="intro-note">Un solo lugar para entrenar, recargar y vestirte.<br>Todo atendido en el mostrador.</p>
+</section>
+
+<section class="mosaic-sec" aria-labelledby="dentro-h">
+  <div class="mosaic">
+    <div class="tile t-head" data-reveal style="--d:0"><h2 id="dentro-h">Lo que hay dentro</h2></div>
+    <figure class="tile t-pic" data-reveal style="--d:1"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dibujo de una barra cargada con discos de 20, 15, 10 y 5 kilos"><use href="#d-barbell"/></svg></figure>
+    <figure class="tile t-pic2" data-reveal style="--d:2"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dibujo de toallas dobladas y un pomo de agua de litro y medio"><use href="#d-towel"/></svg></figure>
+    <div class="tile t-pay" data-reveal style="--d:2"><p>¿Olvidaste la toalla? Aquí se vende.</p></div>
+    <div class="tile t-fig" data-reveal style="--d:3"><p class="fig">+30</p><p>cosas para comer y beber en la nevera</p></div>
+    <div class="tile t-list" data-reveal style="--d:4">
+      <ul>
+        <li>Preentreno por dosis</li>
+        <li>Creatina por dosis</li>
+        <li>Agua fría y Body Armor</li>
+        <li>Toallas a la venta</li>
+      </ul>
+    </div>
+    <div class="tile t-say" data-reveal style="--d:5"><p>La nevera se paga en pesos y la vitrina en dólares.</p></div>
+  </div>
+</section>
+
+<section class="showcase" id="vender" aria-labelledby="vender-h">
+  <article class="panel panel-nevera">
+    <h2 id="vender-h">Nevera y vitrina</h2>
+    <svg class="obj drift" viewBox="0 0 500 700" role="img" aria-label="Dibujo de un vaso de coctel de frutas con pajita"><use href="#d-cup"/></svg>
+    <div class="panel-row">
+      <div><h3>La nevera</h3><p>Se paga en pesos (CUP)</p></div>
+      <div class="panel-actions"><a class="btn-ink" href="#menu">Ver qué hay</a><a class="btn-paper" data-wa="Hola, ¿qué hay hoy en la nevera?" href="https://wa.me/5350000000">Preguntar</a></div>
+    </div>
+  </article>
+  <article class="panel panel-vitrina">
+    <svg class="obj drift" viewBox="0 0 500 700" role="img" aria-label="Dibujo de un pomo de proteína whey de cinco libras"><use href="#d-tub"/></svg>
+    <div class="panel-row">
+      <div><h3>La vitrina</h3><p>Se paga en dólares (USD)</p></div>
+      <div class="panel-actions"><a class="btn-ink" href="#menu">Ver qué hay</a><a class="btn-paper" data-wa="Hola, ¿qué suplementos y ropa tienen en la vitrina?" href="https://wa.me/5350000000">Preguntar</a></div>
+    </div>
+  </article>
+</section>
+
+<section class="pricing" id="planes" aria-labelledby="planes-h">
+  <h2 id="planes-h" data-reveal style="--d:0">Membresías</h2>
+  <div class="plans">
+    <a class="plan plan-1" data-reveal style="--d:1" data-wa="Hola, quiero el pase de un día en Maykel's Gym." href="https://wa.me/5350000000">
+      <span class="plan-name">Un día</span>
+      <span class="plan-price" data-price>500 CUP</span>
+      <span class="plan-lines"><span>Entras y entrenas todo el día</span><span>Para probar antes del mes</span></span>
+      <span class="plan-cta">Quiero el día</span>
+    </a>
+    <a class="plan plan-2" data-reveal style="--d:2" data-wa="Hola, quiero la membresía de un mes en Maykel's Gym." href="https://wa.me/5350000000">
+      <span class="plan-name">Un mes</span>
+      <span class="plan-price" data-price>6.000 CUP</span>
+      <span class="plan-lines"><span>Todos los días del mes</span><span>En cualquier horario abierto</span><span>Te enseñamos a usar cada equipo</span><span>Preentreno por dosis al lado</span></span>
+      <span class="plan-cta">Quiero el mes</span>
+    </a>
+    <a class="plan plan-3" data-reveal style="--d:3" data-wa="Hola, quiero la membresía de tres meses en Maykel's Gym." href="https://wa.me/5350000000">
+      <span class="plan-name">Tres meses</span>
+      <span class="plan-price" data-price>16.000 CUP</span>
+      <span class="plan-lines"><span>Todos los días, tres meses</span><span>En cualquier horario abierto</span><span>Te enseñamos a usar cada equipo</span><span>Pagas menos que mes a mes</span><span>El precio no cambia en esos tres meses</span></span>
+      <span class="plan-cta">Quiero tres meses</span>
+    </a>
+  </div>
+</section>
+
+<section class="menu" id="menu" aria-labelledby="menu-h">
+  <div class="deck-wrap">
+    <div class="deck-stage">
+      <h2 id="menu-h">Lo que vendemos</h2>
+      <div class="deck" role="list">
+        <article class="card c1" role="listitem"><span class="spine-label" aria-hidden="true">Para recargar</span><h3>Para recargar</h3><p>Energizante, Red Bull, Monster, Go Tropic, 5-hour shot, Body Armor y el preentreno servido por dosis.</p><div class="card-foot"><span>Nevera · en pesos</span><a class="link" data-wa="Hola, ¿qué tienen hoy para recargar?" href="https://wa.me/5350000000">Preguntar</a></div></article>
+        <article class="card c2" role="listitem"><span class="spine-label" aria-hidden="true">Para hidratarte</span><h3>Para hidratarte</h3><p>Agua de 330 ml, de medio litro y de litro y medio, bien fría. Jugos y yogurt de litro.</p><div class="card-foot"><span>Nevera · en pesos</span><a class="link" data-wa="Hola, ¿qué tienen hoy para tomar?" href="https://wa.me/5350000000">Preguntar</a></div></article>
+        <article class="card c3" role="listitem"><span class="spine-label" aria-hidden="true">Para comer</span><h3>Para comer</h3><p>Sándwich, espaguetis, empanada, ensalada fría, coctel de frutas, tostadas y yogurt fitness.</p><div class="card-foot"><span>Nevera · en pesos</span><a class="link" data-wa="Hola, ¿qué hay hoy de comer en la nevera?" href="https://wa.me/5350000000">Preguntar</a></div></article>
+        <article class="card c1" role="listitem"><span class="spine-label" aria-hidden="true">Para el antojo</span><h3>Para el antojo</h3><p>Flan, dulce fino, trufas, maní, mantequilla de maní y caramelos de menta.</p><div class="card-foot"><span>Nevera · en pesos</span><a class="link" data-wa="Hola, ¿qué dulces tienen hoy?" href="https://wa.me/5350000000">Preguntar</a></div></article>
+        <article class="card c2" role="listitem"><span class="spine-label" aria-hidden="true">Suplementos</span><h3>Suplementos</h3><p>Creatina, proteína whey e ISO, preentrenos, aminoácidos, glutamina, omega 3, vitamina C y quemadores.</p><div class="card-foot"><span>Vitrina · en dólares</span><a class="link" data-wa="Hola, ¿qué suplementos tienen en la vitrina?" href="https://wa.me/5350000000">Preguntar</a></div></article>
+        <article class="card c3" role="listitem"><span class="spine-label" aria-hidden="true">Ropa y accesorios</span><h3>Ropa y accesorios</h3><p>Shorts, licras, topes, joggers, monos, pulóveres, tenis, gorras, mochilas, guantillas y fajas.</p><div class="card-foot"><span>Vitrina · en dólares</span><a class="link" data-wa="Hola, ¿qué ropa tienen en la vitrina?" href="https://wa.me/5350000000">Preguntar</a></div></article>
+      </div>
+      <p class="deck-note">Seis apartados y más de cien productos. Si no ves lo que buscas, <a class="link" data-wa="Hola, ¿tienen esto?: " href="https://wa.me/5350000000">pregúntanos</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="how" aria-labelledby="how-h">
+  <h2 id="how-h" data-reveal style="--d:0">Cómo empezar</h2>
+  <ol class="steps">
+    <li class="step s1" data-reveal style="--d:1">
+      <div class="step-tile"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dibujo de un teléfono con un chat de WhatsApp"><use href="#d-phone"/></svg></div>
+      <h3>Primero, escribe</h3>
+      <p>Mándanos un WhatsApp con tu objetivo y tu horario. Te contestamos con el precio de hoy.</p>
+    </li>
+    <li class="step s2" data-reveal style="--d:2">
+      <div class="step-tile"><svg viewBox="0 0 500 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dibujo de la puerta de Maykel's Gym con el cartel de abierto"><use href="#d-door"/></svg></div>
+      <h3>Después, ven</h3>
+      <p>Pasa por el mostrador, paga en pesos, dólares o transferencia y te enseñamos el gym.</p>
+    </li>
+    <li class="step s3" data-reveal style="--d:3">
+      <div class="step-tile"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dibujo de una barra cargada lista para entrenar"><use href="#d-barbell"/></svg></div>
+      <h3>Y entonces, entrena</h3>
+      <p>Tu preentreno te espera en el mostrador y el agua fría, en la nevera.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="faq" id="preguntas" aria-labelledby="faq-h">
+  <div class="faq-head"><h2 id="faq-h">Preguntas</h2></div>
+  <div class="band"><h3>¿Puedo probar un día antes de pagar el mes?</h3><p>Sí. Paga el pase de un día, entrena y, si te gusta, lo descontamos al sacar el mes ese mismo día.</p></div>
+  <div class="band"><h3>¿En qué moneda pago?</h3><p>La nevera se cobra en pesos y la vitrina en dólares. La membresía la puedes pagar en pesos, en dólares a la tasa del día o por transferencia.</p></div>
+  <div class="band"><h3>¿Qué es el preentreno por dosis?</h3><p>Una dosis de preentreno o de creatina que te sirven en el mostrador antes de entrenar. No tienes que comprar el pomo entero para probarlo.</p></div>
+  <div class="band"><h3>¿Nunca he entrenado. Puedo ir?</h3><p>Claro. El primer día te enseñamos cómo se usa cada equipo y con qué peso empezar. Nadie nace sabiendo.</p></div>
+  <div class="band"><h3>¿Venden ropa de mujer?</h3><p>Sí: licras cortas y largas, topes, shorts, bodies, vestidos y monos. Pregunta las tallas por WhatsApp antes de venir.</p></div>
+  <div class="band"><h3>¿Qué horario tienen?</h3><p>De lunes a sábado, de 6:00 de la mañana a 10:00 de la noche. Los domingos, de 8:00 a 12:00.</p></div>
+</section>
+
+<section class="contact" id="contacto" aria-labelledby="contacto-h">
+  <div class="compose">
+    <h2 id="contacto-h">Escríbenos</h2>
+    <form class="picker" id="picker" action="https://wa.me/5350000000" method="get">
+      <fieldset>
+        <legend>Quiero</legend>
+        <label><input type="radio" name="goal" value="bajar de peso" checked><span>Bajar de peso</span></label>
+        <label><input type="radio" name="goal" value="ganar músculo"><span>Ganar músculo</span></label>
+        <label><input type="radio" name="goal" value="ponerme en forma"><span>Ponerme en forma</span></label>
+      </fieldset>
+      <fieldset>
+        <legend>Entreno</legend>
+        <label><input type="radio" name="time" value="por la mañana" checked><span>Por la mañana</span></label>
+        <label><input type="radio" name="time" value="por la tarde"><span>Por la tarde</span></label>
+        <label><input type="radio" name="time" value="por la noche"><span>Por la noche</span></label>
+      </fieldset>
+      <fieldset>
+        <legend>Para empezar</legend>
+        <label><input type="radio" name="plan" value="el pase de un día" checked><span>Un día</span></label>
+        <label><input type="radio" name="plan" value="la membresía de un mes"><span>Un mes</span></label>
+        <label><input type="radio" name="plan" value="la membresía de tres meses"><span>Tres meses</span></label>
+      </fieldset>
+      <p class="bubble" id="bubble" aria-live="polite">Hola, quiero bajar de peso y entreno por la mañana. ¿Cuánto cuesta el pase de un día?</p>
+      <input type="hidden" name="text" id="wa-text" value="Hola, quiero bajar de peso y entreno por la mañana. ¿Cuánto cuesta el pase de un día?">
+    </form>
+  </div>
+  <div class="rows">
+    <p class="row"><span>Maykel's Gym</span><svg class="row-pic" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dibujo de la puerta del gym"><use href="#d-door"/></svg></p>
+    <a class="row" href="https://maps.google.com/?q=Maykel%27s+Gym"><span>Calle y número</span><span class="row-aside">Abrir en el mapa</span></a>
+    <p class="row"><span>Reparto, ciudad</span><span class="row-aside">Cuba</span></p>
+    <p class="row"><span class="wide">Lun a sáb · 6:00 a 22:00</span><span class="narrow">Lun a sáb<br>6:00 a 22:00</span><span class="row-aside">Domingos, 8:00 a 12:00</span></p>
+    <a class="row" href="tel:+5350000000"><span>+53 5000 0000</span><span class="row-aside">Llamar</span></a>
+    <div class="row row-hola">
+      <span>Hola</span>
+      <button class="go" type="submit" form="picker" aria-label="Enviar este mensaje por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h12.2l-5.1-5.1L12.5 4.5 20 12l-7.5 7.5-1.4-1.4 5.1-5.1H4z" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="blocks" aria-label="Maykel's Gym" role="img">
+    <span style="--h:100%;--c:#ff8126">M</span><span style="--h:86%;--c:#4db3ff">A</span><span style="--h:94%;--c:#c5f53d">Y</span><span style="--h:80%;--c:#de194b">K</span><span style="--h:96%;--c:#f2f2f2">E</span><span style="--h:84%;--c:#ff8126">L</span><span style="--h:76%;--c:#4db3ff">'</span><span style="--h:90%;--c:#c5f53d">S</span>
+  </div>
+  <div class="foot-cols">
+    <ul><li><a class="link" href="#planes">Membresías</a></li><li><a class="link" href="#preguntas">Preguntas</a></li></ul>
+    <ul><li><a class="link" href="#vender">Nevera</a></li><li><a class="link" href="#menu">Vitrina</a></li></ul>
+    <ul><li><a class="link" href="#contacto">Cómo llegar</a></li><li><a class="link" data-wa="Hola, quiero información para entrenar en Maykel's Gym." href="https://wa.me/5350000000">WhatsApp</a></li></ul>
+    <ul><li><a class="link" href="https://www.instagram.com/">Instagram</a></li><li><a class="link" href="https://www.facebook.com/">Facebook</a></li></ul>
+    <div class="foot-contact"><p>Calle y número, reparto, ciudad</p><p>+53 5000 0000 · Lun a sáb, 6:00 a 22:00</p></div>
+  </div>
+  <div class="foot-last">
+    <p>© 2026 Maykel's Gym. Dibujos provisionales hasta tener las fotos del gym.</p>
+    <a class="button" data-wa="Hola, quiero información para entrenar en Maykel's Gym." href="https://wa.me/5350000000">Escríbenos</a>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
